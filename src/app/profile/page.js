@@ -5,6 +5,7 @@ import Image from 'next/image';
 import {useEffect, useState} from "react";
 import Link from "next/link";
 import UserTabs from "@/components/layout/UserTabs";
+import EditableImage from "@/components/layout/EditableImage";
 
 export default function ProfilePage(){
     const session = useSession();
@@ -59,21 +60,6 @@ export default function ProfilePage(){
         }
     }
 
-    async function handleFileChange(ev) {
-        const files = ev?.target.files;
-        if(files?.length === 1)
-        {
-            const data = new FormData;
-            data.set('file', files[0]);
-            const response = await fetch('/api/upload', {
-                method: 'POST',
-                body: data,
-            });
-            const link = await response.json();
-            setImage(link);
-        }
-    }
-
     if(status === 'loading'){
         return 'Loading...';
     }
@@ -97,17 +83,7 @@ export default function ProfilePage(){
                 <div className="flex gap-4">
                     <div>
                         <div className=" p-2 rounded-lg relative max-w-[120px]">
-                            {image && (
-                                <Image className="rounded-lg h-full w-full mb-4"
-                                       src={image} width={250} height={250} alt={'avatar'} />
-                            )}
-                            <label>
-                                <input type="file" className="hidden" onChange={handleFileChange}/>
-                                <span className="block border rounded-lg
-                                p-2 mt-4 text-center text-primary font-semibold
-                                cursor-pointer">
-                                    Change photo</span>
-                            </label>
+                            <EditableImage link={image} setLink={setImage}/>
                         </div>
                     </div>
                     <form className="grow" onSubmit={handleProfileInfoUpdate}>

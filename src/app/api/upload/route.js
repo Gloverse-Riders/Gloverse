@@ -1,6 +1,7 @@
 import {PutObjectCommand, S3Client} from "@aws-sdk/client-s3";
 import {unique} from "next/dist/build/utils";
 import uniqid from 'uniqid';
+import mongoose from "mongoose";
 
 export async function POST(req){
     const data = await req.formData();
@@ -35,5 +36,5 @@ export async function POST(req){
         const link = 'https://gloverse.s3.amazonaws.com/'+newFileName;
         return Response.json(link);
     }
-    //return Response.json(true);
+    return Response.json(true);
 }

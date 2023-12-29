@@ -9,7 +9,7 @@ import {MongoDBAdapter} from "@auth/mongodb-adapter";
 import clientPromise from "@/libs/mongoConnect";
 
 export const authOptions = {
-    //secret:process.env.SECRET,
+    secret:process.env.SECRET,
     adapter: MongoDBAdapter(clientPromise),
     providers: [
         GoogleProvider({
@@ -44,7 +44,7 @@ export const authOptions = {
     session: {
         strategy:"jwt",
     },
-    secret: process.env.SECRET,
+
     pages: {
         signIn: "/login",
     },
