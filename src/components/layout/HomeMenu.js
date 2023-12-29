@@ -15,10 +15,10 @@ export default function HomeMenu(){
                     <Image src={'/salad2.png'} layout={'fill'} objectFit={'contain'} alt={''} />
                 </div>
             </div>
-            <div className="text-center mb-4 ">
+            <div className="text-center mb-4" id="services">
                 <SectionHeaders mainHeader={'Services'} />
             </div>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-4" >
                 {/* <MenuItem />
                 <MenuItem />
                 <MenuItem />

@@ -43,8 +43,8 @@ export default function Header(){
                                 <Link className="text-primary font-bold text-2xl" href="/">GLOVERSE</Link>
                                 <Link href={'/'}>Home</Link>
                                 <Link href={''}>Menu</Link>
-                                <Link href={''}>About</Link>
-                                <Link href={''}>Contact</Link>
+                                <a href="#about">About</a>
+                                <a href="#about">Contact</a>
                             
                             </nav>
                                 <nav className="flex items-center gap-4 text-gray-500 font-semibold">

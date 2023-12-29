@@ -10,10 +10,11 @@ export default function Hero(){
                 <p className="my-4 text-gray-500 text-sm">Pizza is the missing piece that makes everyday complete, a simple yet delicious joy</p>
                 <div className="flex gap-6 text-sm">
                     <button className="bg-primary flex items-center gap-2 text-white px-6 py-2 rounded-full">
-                        Order now <Right />
+                    <a href="/menu">Order Now</a>
+ <Right />
                     </button>
                     <button className="flex items-center border-0 gap-2 py-2 text-center rounded-full text-gray-600 font-semibold">
-                        Learn more <Right />
+                    <a href="#services">Learn More</a> <Right />
                     </button>
                 </div>
             </div>

@@ -13,7 +13,7 @@ export default function Home() {
             subHeader={'Our story'}
             mainHeader={'About us'}
             />
-          <div className="text-grey-500 max-w-2xl mx-auto mt-4 flex flex-col gap-4">
+          <div className="text-grey-500 max-w-2xl mx-auto mt-4 flex flex-col gap-4" id="about">
               <p>
                   I am a results-oriented professional with a strong
                   background in marketing and project management, holding a
@@ -39,7 +39,7 @@ export default function Home() {
             <SectionHeaders
                 subHeader={'Don\'t hesitate'}
                 mainHeader={'Contact us'} />
-            <div className="mt-8">
+            <div className="mt-8" id="contact">
                 <a className="text-4xl text-primary" href="tel:+40741251576">+40741251576</a>
             </div>
         </section>
