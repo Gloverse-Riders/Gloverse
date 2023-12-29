@@ -1,4 +1,3 @@
-
 import {User} from "@/app/models/User";
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
@@ -10,7 +9,7 @@ import {MongoDBAdapter} from "@auth/mongodb-adapter";
 import clientPromise from "@/libs/mongoConnect";
 
 export const authOptions = {
-    secret:process.env.SECRET,
+    //secret:process.env.SECRET,
     adapter: MongoDBAdapter(clientPromise),
     providers: [
         GoogleProvider({
@@ -18,9 +17,8 @@ export const authOptions = {
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         }),
         CredentialsProvider({
+            name:"credentials",
 
-            name: 'Credentials',
-            id: 'credentials',
             credentials: {
                 username: { label: "Username", type: "email", placeholder: "test@example.com" },
                 password: { label: "Password", type: "password" }
@@ -34,13 +32,22 @@ export const authOptions = {
                 const passwordOk = user && bcrypt.compareSync(password, user.password);
 
                 if(passwordOk){
+                    //document.write("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
                     return user;
                 }
 
                 return null;
+
             }
         })
     ],
+    session: {
+        strategy:"jwt",
+    },
+    secret: process.env.SECRET,
+    pages: {
+        signIn: "/login",
+    },
 };
 
 const handler = NextAuth(authOptions);

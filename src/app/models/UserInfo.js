@@ -8,7 +8,7 @@ const UserInfoSchema = new Schema({
     postalCode: {type:String},
     number: {type:String},
     streetAddress: {type:String},
-    admin: {type: Boolean, default: false}
+    admin: {type: Boolean, default: false},
     }
 );
 
